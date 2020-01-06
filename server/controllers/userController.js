@@ -34,6 +34,7 @@ userController.verifyUser = (req, res, next) => {
     if (!result) {
       res.locals.login = 'failed';
       //res.redirect('/api/signup')
+      // console.log('Req inside verifyUser', req)
       return next()
       // return res.render('./..component/signUpComponent', {error: "error in userController.createUser"}) ///add component/sign up page
     } else {
@@ -41,7 +42,6 @@ userController.verifyUser = (req, res, next) => {
       console.log("res.locals.id in userController.verifyUser and we are logged in!", res.locals.id)
       return next()
     }
-
   })
 }
 

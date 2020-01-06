@@ -29,21 +29,26 @@ router.post("/favs", shelterController.getFavs, shelterController.addFavs, (req,
 //These are login / signup routes
 //signup
 router.get('/signup', (req, res) => {
-  res.status(200).render('../../Component/signUpComponent', {error:null})
+  // res.sendStatus(200)
+  res.status(200).render('../../Component/signUpComponent', (err) => {
+    return res.sendStatus
+  })
 })
 
 
 router.post('/signup', userController.createUser, (req, res) => {  //need to define sessionsController.startSession, cookieController.setSSIDCookie and add here
-   res.redirect('/api/home') //should redirect to the home page where users can search
+  return res.redirect('/api/home') //should redirect to the home page where users can search
 }) 
 
 //login
 router.post('/', userController.verifyUser, (req, res) => {  //need to define sessionsController.startSession, cookieController.setSSIDCookie and add here
   const { login } = res.locals;
   if (login === 'failed') {
-    res.redirect('/api/signup');
+    console.log('In Login Falied')
+    console.log('Header', req.headers)
+    return res.redirect('/api/signup');
   } else {
-    res.redirect('/api/home');  //should redirect to the home page where users can search
+   return res.redirect('/api/home');  //should redirect to the home page where users can search
   }
  
 })

@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3000;
 const apiRouter = require('./routes/api');
 const mongoose = require('mongoose')
+// const ejs = require('ejs')
 
 const MONGO_URI = 'mongodb+srv://willy-j_22:NewGirl7@cluster0-rtykt.mongodb.net/test?retryWrites=true&w=majority';
 
