@@ -18,6 +18,8 @@ import {
   Jumbotron,
   Container
 } from "reactstrap";
+import Login from "../Component/loginComponent";
+import SignUp from "../Component/signUpComponent";
 
 // Used React Hooks to create states inside a functional component
 function App() {
@@ -88,6 +90,7 @@ function App() {
   return (
     <React.Fragment>
       <Jumbotron className="jumbotron" fluid>
+        <SignUp />
         <Container fluid>
           <h1 className="display-3">Welcome to Agota Homes</h1>
           <p className="lead">Find a shelter near you.</p>
