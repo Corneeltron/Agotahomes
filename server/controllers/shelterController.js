@@ -10,13 +10,8 @@ shelterController.getShelters = (req, res, next) => {
     .then(data => data.json())
     .then(shelters => {
       const sheltersArr = [];
-<<<<<<< HEAD
       const selectedLocation = req.query.location;
       const categoryKeywords = categoryToKeywords[req.query.category]; // ['youth', 'young', 'runaway', 'at-risk']
-=======
-      const selectedLocation = req.body.location;
-      const categoryKeywords = categoryToKeywords[req.body.category]; // ['youth', 'young', 'runaway', 'at-risk']
->>>>>>> a3748eb1cefe55dfb516361a07718c6bcadfa931
       for (let i = 0; i < shelters.features.length; i++) {
         const {
           OBJECTID,
@@ -34,16 +29,10 @@ shelterController.getShelters = (req, res, next) => {
         // if there is no category word or if the description contains any of the keywords, then push it
         if (
           (!categoryKeywords ||
-<<<<<<< HEAD
             categoryKeywords.find(keyword =>
               description.toLowerCase().includes(keyword)
             )) &&
           city === selectedLocation
-=======
-          categoryKeywords.find(keyword =>
-            description.toLowerCase().includes(keyword)
-          )) && (city === selectedLocation)
->>>>>>> a3748eb1cefe55dfb516361a07718c6bcadfa931
         ) {
           sheltersArr.push({
             OBJECTID,
@@ -86,16 +75,10 @@ const categoryToKeywords = {
   translator: ["translator", "interpreter"]
 };
 // Display all Favorites
-shelterController.getFavs = ((req, res, next) => {
-  
-})
+shelterController.getFavs = (req, res, next) => {};
 //Add the Favorites to the Database onClick
-shelterController.addFavs = ((req, res, next) => {
-
-})
+shelterController.addFavs = (req, res, next) => {};
 //Remove the Favorite from the Database onClick
-shelterController.removeFav = ((req, res, next) => {
-
-})
+shelterController.removeFav = (req, res, next) => {};
 
 module.exports = shelterController;
