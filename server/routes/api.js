@@ -1,5 +1,6 @@
 const express = require('express');
 const shelterController = require('../controllers/shelterController');
+<<<<<<< HEAD
 const userController = require('../controllers/userController')
 const cookieParser = require('cookie-parser');
 const bodyparser = require('body-parser');
@@ -57,3 +58,13 @@ router.post('/', userController.verifyUser, (req, res) => {  //need to define se
 
 
 module.exports = router;
+=======
+
+const router = express.Router();
+
+router.get('/', shelterController.getShelters, (req, res) => {
+  res.status(200).json(res.locals.shelters);
+});
+
+module.exports = router;
+>>>>>>> 45603716044f1eacc59a4f839c71c30522f82a5c
