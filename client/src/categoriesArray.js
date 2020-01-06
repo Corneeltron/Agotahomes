@@ -1,72 +1,72 @@
 const categoriesArray = [
   {
-    label: 'women',
-    value: 'women'
+    label: "Women's Shelters",
+    value: "Women"
   },
   {
-    label: 'families',
-    value: 'families'
+    label: "Families with Children",
+    value: "Families"
   },
   {
-    label: 'youth',
-    value: 'youth'
+    label: "Shelters for Youth",
+    value: "Youth"
   },
   {
-    label: 'substance',
-    value: 'substance'
+    label: "Substance Abuse Services",
+    value: "Substance"
   },
   {
-    label: 'mental',
-    value: 'mental'
+    label: "Mental Health Services",
+    value: "Mental"
   },
   {
-    label: 'veterans',
-    value: 'veterans'
+    label: "Veterans Services",
+    value: "Veterans"
   },
   {
-    label: 'housing',
-    value: 'housing'
+    label: "Housing Services",
+    value: "Housing"
   },
   {
-    label: 'food',
-    value: 'food'
+    label: "Emergency Food Services",
+    value: "Food"
   },
   {
-    label: 'counseling',
-    value: 'counseling'
+    label: "Counseling Services",
+    value: "Counseling"
   },
   {
-    label: 'transportation',
-    value: 'transportation'
+    label: "Transportation Services",
+    value: "Transportation"
   },
   {
-    label: 'employment',
-    value: 'employment'
+    label: "Employment Services",
+    value: "Employment"
   },
   {
-    label: 'disabled',
-    value: 'disabled'
+    label: "Disabilities Services",
+    value: "Disabled"
   },
   {
-    label: 'holiday',
-    value: 'holiday'
+    label: "Holiday Assistance",
+    value: "Holiday"
   },
   {
-    label: 'std',
-    value: 'std'
+    label: "HIV/AIDS Services",
+    value: "Std"
   },
   {
-    label: 'education',
-    value: 'education'
+    label: "Education Services",
+    value: "Education"
   },
   {
-    label: 'refugees',
-    value: 'refugees'
+    label: "Refugee Assistance",
+    value: "Refugees"
   },
   {
-    label: 'translator',
-    value: 'translator'
-  },
+    label: "Translation Services",
+    value: "Translator"
+  }
 ];
 
 export default categoriesArray;

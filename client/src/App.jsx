@@ -24,6 +24,7 @@ function App() {
   const [location, setLocation] = useState("");
   const [category, setCategory] = useState("");
   const [data, setData] = useState({ results: [] });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -37,6 +38,7 @@ function App() {
       )
       .then(res => setData(res.data))
       .catch(err => console.log(err));
+    setIsSubmitted(true);
   };
 
   const customStyles = {
@@ -46,9 +48,41 @@ function App() {
     })
   };
 
+  const headings = [
+    "Name",
+    "Description",
+    "Address",
+    "City",
+    "Zip",
+    "Hours",
+    "Phones",
+    "Website",
+    "Bookmark"
+  ];
+
+  const rows = data.results.map((result, i) => {
+    return (
+      <tr>
+        <td key={i}>{result.Name}</td>
+        <td key={i}>{result.description}</td>
+        <td key={i}>{result.addrln1}</td>
+        <td key={i}>{result.city}</td>
+        <td key={i}>{result.zip}</td>
+        <td key={i}>{result.hours}</td>
+        <td key={i}>{result.phones}</td>
+        <td key={i}>{result.url}</td>
+        <td key={i}>
+          <Button outline color="info" size="sm">
+            Save
+          </Button>
+        </td>
+      </tr>
+    );
+  });
+
   return (
     <React.Fragment>
-      <Jumbotron fluid>
+      <Jumbotron className="jumbotron" fluid>
         <Container fluid>
           <h1 className="display-3">Welcome to Agota Homes</h1>
           <p className="lead">Find a shelter near you.</p>
@@ -77,42 +111,31 @@ function App() {
         >
           Submit
         </Button>
+        <br />
+        <br />
       </Container>
+      {isSubmitted && <ResultsTable headings={headings} rows={rows} />}
       <br />
       <br />
       <br />
-      <Table hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Zip</th>
-            <th>Hours</th>
-            <th>Phones</th>
-            <th>Website</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.results.map((result, i) => {
-            return (
-              <tr>
-                <td key={i}>{result.Name}</td>
-                <td key={i}>{result.description}</td>
-                <td key={i}>{result.addrln1}</td>
-                <td key={i}>{result.city}</td>
-                <td key={i}>{result.zip}</td>
-                <td key={i}>{result.hours}</td>
-                <td key={i}>{result.phones}</td>
-                <td key={i}>{result.url}</td>
-                <Button size="sm">Add</Button>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
     </React.Fragment>
+  );
+}
+
+// Results Table Component
+
+function ResultsTable({ headings, rows }) {
+  return (
+    <Table hover>
+      <thead>
+        <tr>
+          {headings.map((heading, i) => {
+            return <th key={i}>{heading}</th>;
+          })}
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </Table>
   );
 }
 export default App;

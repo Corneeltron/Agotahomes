@@ -4,18 +4,17 @@
   height: 100vh;
 }
 
-h2 {
-  color: darkslategrey;
-  padding: 20px;
-  text-align: center;
-}
-
-#subbutton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 body {
   background-color: rgb(241, 241, 241);
+}
+
+.jumbotron {
+  background-image: url("/src/blue-sunny-sky-1.jpg");
+  font-family: "Quicksand", sans-serif;
+  color: whitesmoke;
+  background-size: cover;
+}
+
+.display-3 {
+  font-weight: 575;
 }
