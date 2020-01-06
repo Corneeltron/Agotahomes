@@ -1,0 +1,21 @@
+.app {
+  background: #209cee;
+  padding: 30px;
+  height: 100vh;
+}
+
+h2 {
+  color: darkslategrey;
+  padding: 20px;
+  text-align: center;
+}
+
+#subbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background-color: rgb(241, 241, 241);
+}

@@ -1,15 +1,17 @@
-const path = require('path');
+const path = require("path");
 const shelterController = {};
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 shelterController.getShelters = (req, res, next) => {
+  console.log("i'm in shelterController: ", req.query);
   const url =
-    'https://public.gis.lacounty.gov/public/rest/services/LACounty_Dynamic/LMS_Data_Public/MapServer/158/query?where=1%3D1&outFields=*&outSR=4326&f=json';
+    "https://public.gis.lacounty.gov/public/rest/services/LACounty_Dynamic/LMS_Data_Public/MapServer/158/query?where=1%3D1&outFields=*&outSR=4326&f=json";
   fetch(url)
     .then(data => data.json())
     .then(shelters => {
       const sheltersArr = [];
-      const categoryKeywords = categoryToKeywords[req.body.category]; // ['youth', 'young', 'runaway', 'at-risk']
+      const selectedLocation = req.query.location;
+      const categoryKeywords = categoryToKeywords[req.query.category]; // ['youth', 'young', 'runaway', 'at-risk']
       for (let i = 0; i < shelters.features.length; i++) {
         const {
           OBJECTID,
@@ -26,10 +28,11 @@ shelterController.getShelters = (req, res, next) => {
         } = shelters.features[i].attributes;
         // if there is no category word or if the description contains any of the keywords, then push it
         if (
-          !categoryKeywords ||
-          categoryKeywords.find(keyword =>
-            description.toLowerCase().includes(keyword)
-          )
+          (!categoryKeywords ||
+            categoryKeywords.find(keyword =>
+              description.toLowerCase().includes(keyword)
+            )) &&
+          city === selectedLocation
         ) {
           sheltersArr.push({
             OBJECTID,
@@ -46,30 +49,30 @@ shelterController.getShelters = (req, res, next) => {
           });
         }
       }
-      res.locals.shelters = sheltersArr;
+      res.locals.shelters = { results: sheltersArr };
       return next();
     })
     .catch(err => console.log("You're in the shelterController!", err));
 };
 
 const categoryToKeywords = {
-  women: ['women', 'pregnant', 'battered', 'domestic violence', 'victims'],
-  families: ['families', 'children', 'family'],
-  youth: ['youth', 'young', 'runaway', 'at-risk'],
-  substance: ['substance', 'drug'],
-  mental: ['mental', 'mentally ill'],
-  veterans: ['veterans'],
-  housing: ['housing', 'shelter', 'motel'],
-  food: ['food'],
-  counseling: ['counseling'],
-  transportation: ['transportation'],
-  employment: ['employment'],
-  disabled: ['developmental', 'disabilities'],
-  holiday: ['holiday'],
-  std: ['hiv', 'aids'],
-  education: ['education'],
-  refugees: ['refugees'],
-  translator: ['translator', 'interpreter']
+  women: ["women", "pregnant", "battered", "domestic violence", "victims"],
+  families: ["families", "children", "family"],
+  youth: ["youth", "young", "runaway", "at-risk"],
+  substance: ["substance", "drug"],
+  mental: ["mental", "mentally ill"],
+  veterans: ["veterans"],
+  housing: ["housing", "shelter", "motel"],
+  food: ["food"],
+  counseling: ["counseling"],
+  transportation: ["transportation"],
+  employment: ["employment"],
+  disabled: ["developmental", "disabilities"],
+  holiday: ["holiday"],
+  std: ["hiv", "aids"],
+  education: ["education"],
+  refugees: ["refugees"],
+  translator: ["translator", "interpreter"]
 };
 
 module.exports = shelterController;
