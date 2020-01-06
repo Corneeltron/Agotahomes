@@ -1,11 +1,47 @@
 const categoriesArray = [
   {
-    label: "Women's Shelters",
-    value: "Women"
+    label: "Counseling Services",
+    value: "Counseling"
+  },
+  {
+    label: "Disabilities Services",
+    value: "Disabled"
+  },
+  {
+    label: "Education Services",
+    value: "Education"
+  },
+  {
+    label: "Emergency Food Services",
+    value: "Food"
+  },
+  {
+    label: "Employment Services",
+    value: "Employment"
   },
   {
     label: "Families with Children",
     value: "Families"
+  },
+  {
+    label: "HIV/AIDS Services",
+    value: "Std"
+  },
+  {
+    label: "Holiday Assistance",
+    value: "Holiday"
+  },
+  {
+    label: "Housing Services",
+    value: "Housing"
+  },
+  {
+    label: "Mental Health Services",
+    value: "Mental"
+  },
+  {
+    label: "Refugee Assistance",
+    value: "Refugees"
   },
   {
     label: "Shelters for Youth",
@@ -16,56 +52,20 @@ const categoriesArray = [
     value: "Substance"
   },
   {
-    label: "Mental Health Services",
-    value: "Mental"
-  },
-  {
-    label: "Veterans Services",
-    value: "Veterans"
-  },
-  {
-    label: "Housing Services",
-    value: "Housing"
-  },
-  {
-    label: "Emergency Food Services",
-    value: "Food"
-  },
-  {
-    label: "Counseling Services",
-    value: "Counseling"
+    label: "Translation Services",
+    value: "Translator"
   },
   {
     label: "Transportation Services",
     value: "Transportation"
   },
   {
-    label: "Employment Services",
-    value: "Employment"
+    label: "Veterans Services",
+    value: "Veterans"
   },
   {
-    label: "Disabilities Services",
-    value: "Disabled"
-  },
-  {
-    label: "Holiday Assistance",
-    value: "Holiday"
-  },
-  {
-    label: "HIV/AIDS Services",
-    value: "Std"
-  },
-  {
-    label: "Education Services",
-    value: "Education"
-  },
-  {
-    label: "Refugee Assistance",
-    value: "Refugees"
-  },
-  {
-    label: "Translation Services",
-    value: "Translator"
+    label: "Women's Shelters",
+    value: "Women"
   }
 ];
 

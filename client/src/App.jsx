@@ -18,14 +18,15 @@ import {
   Jumbotron,
   Container
 } from "reactstrap";
-import StateManager from "react-select";
 
+// Used React Hooks to create states inside a functional component
 function App() {
-  const [location, setLocation] = useState("");
-  const [category, setCategory] = useState("");
+  const [location, setLocation] = useState(""); // State used inside of the location/city dropdown (which is a react.select component)
+  const [category, setCategory] = useState(""); // State used inside of the category dropdown (a react.select component)
   const [data, setData] = useState({ results: [] });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Functionality of the Submit button, under the dropdowns
   const handleSubmit = e => {
     e.preventDefault();
     if (!location || !category) {
@@ -41,6 +42,7 @@ function App() {
     setIsSubmitted(true);
   };
 
+  // React.select styling syntax, used for the two dropdown components. Add styles here.
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
@@ -48,6 +50,7 @@ function App() {
     })
   };
 
+  // Table Header categories
   const headings = [
     "Name",
     "Description",
@@ -60,6 +63,8 @@ function App() {
     "Bookmark"
   ];
 
+  // Creation of table. handleSubmit makes an axios call to the api and maps into the data Hooks state as an array of all shelters contained as individual objects.
+  // Each result.prop is a prop on an individual shelter object. Can make a postman get request to api to check format.
   const rows = data.results.map((result, i) => {
     return (
       <tr>
