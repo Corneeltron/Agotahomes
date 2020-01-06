@@ -8,9 +8,15 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
+<<<<<<< HEAD
     "bootstrap": "^4.4.1",
+=======
+    "cookie-parser": "^1.4.4",
+>>>>>>> a3748eb1cefe55dfb516361a07718c6bcadfa931
     "cors": "^2.8.5",
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "mongoose": "^5.8.4",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
